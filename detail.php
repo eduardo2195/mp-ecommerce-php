@@ -10,17 +10,11 @@ $preference = new MercadoPago\Preference();
 
 //Crea ítem de productos
 
-$producto = [
-    'titulo' => $_POST['title'],
-    'cantidad' => $_POST['unit'],
-    'precio' => $_POST['price']    
-];
-
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = $producto = ['titulo'];
-$item->quantity = $producto = ['cantidad'];
-$item->unit_price = $producto = ['precio'];
+$item->title = $_POST['title'];
+$item->quantity = $_POST['unit'];
+$item->unit_price = $_POST['price'];
 $preference->items = array($item);
 $preference->save();
 ?>
@@ -145,16 +139,16 @@ $preference->save();
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
-                                                    <span data-ase-truncate="2"><?php echo $producto = ['titulo']; ?></span>
+                                                    <span data-ase-truncate="2"><?php echo $_POST['title']; ?></span>
                                                 </p>
 
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo "$" . $producto = ['precio']; ?>
+                                            <?php echo "$" . $_POST['price']; ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "Cantidad" .  $producto = ['cantidad']; ?>
+                                            <?php echo "Cantidad" .  $_POST['unit']; ?>
                                         </h3>
                                     </div>
                                     <!--<button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>-->
